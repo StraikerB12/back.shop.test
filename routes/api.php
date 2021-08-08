@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\ApiController;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -14,6 +16,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+Route::get('/test', function () {
+    return "{test: true}";
 });
+// ['middleware'=>['frontMiddleware'], 'uses'=>'ApiController@start'] 
+Route::match( ['get','post'],  '/front/{method}',  [ApiController::class, 'start'] )->middleware('frontMiddleware');
