@@ -20,8 +20,5 @@ use App\Http\Controllers\ApiController;
 //     return $request->user();
 // });
 
-Route::get('/test', function () {
-    return "{test: true}";
-});
-// ['middleware'=>['frontMiddleware'], 'uses'=>'ApiController@start'] 
-Route::match( ['get','post'],  '/front/{method}',  [ApiController::class, 'start'] )->middleware('frontMiddleware');
+
+Route::match( ['get','post'],  '/api/{method}',  [ApiController::class, 'start'] )->middleware('systemMiddleware');

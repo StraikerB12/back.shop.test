@@ -5,13 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-// use App\Http\Controllers\api\users;
-
 
 class ApiController extends Controller
 {
     public $request;
-    protected $usesApi = "App\Http\Controllers\api\\";
+    protected $usesApi = "App\Http\Controllers\API\\";
 
 
     public function __construct(Request $request){
